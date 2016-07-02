@@ -5,6 +5,7 @@ import me.wantgo.common.entity.RawString;
 import me.wantgo.common.entity.ReturnValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
@@ -16,7 +17,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 /**
  * Created by zxb on 7/1/16.
  */
-@Component
 @ControllerAdvice
 public class ReturnValueController implements ResponseBodyAdvice {
 
@@ -31,7 +31,7 @@ public class ReturnValueController implements ResponseBodyAdvice {
     private Void printRawString(final ServerHttpResponse response, final String string) {
         try {
             response.getHeaders().setContentType(MediaType.TEXT_PLAIN);
-            response.getBody().write(string.getBytes("US-ASCII"));
+            response.getBody().write(string.getBytes("UTF-8"));
         } catch (Exception e) {
             logger.error("write raw string failed", e);
         }
@@ -52,12 +52,17 @@ public class ReturnValueController implements ResponseBodyAdvice {
             return new ReturnValue(false, body);
         else if (body instanceof RawString)
             return printRawString(response, body.toString());
-        else
-            return new ReturnValue(true, body);
+        else{
+            ReturnValue returnValue = new ReturnValue(true,body);
+            return returnValue;
+        }
+
     }
 
     @Override
-    public boolean supports(MethodParameter methodParameter, Class aClass) {
+    public boolean supports(MethodParameter returnType, Class converterType) {
         return true;
     }
+
+
 }

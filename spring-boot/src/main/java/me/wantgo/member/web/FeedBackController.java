@@ -1,5 +1,8 @@
 package me.wantgo.member.web;
 
+import me.wantgo.common.entity.RawString;
+import me.wantgo.common.entity.ReturnValue;
+import me.wantgo.member.entity.FeedBack;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeedBackController {
 
     @RequestMapping
-    String getFeedBack(){
-        return "返回意见反馈相关信息";
+    FeedBack getFeedBack(){
+        return new FeedBack(24,"张向兵");
+    }
+
+    @RequestMapping(value = "/1",produces = "application/json")
+    String getName(){
+        return "张向兵";
     }
 
 }
