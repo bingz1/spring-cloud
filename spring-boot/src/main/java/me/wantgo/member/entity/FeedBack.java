@@ -1,6 +1,7 @@
 package me.wantgo.member.entity;
 
 public class FeedBack {
+
     private Integer id;
 
     private String name;

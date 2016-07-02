@@ -31,7 +31,7 @@
         </sqlMapGenerator>
 
         <!-- 对应的dao接口 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="me.wantgo.member..dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="me.wantgo.member.dao"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

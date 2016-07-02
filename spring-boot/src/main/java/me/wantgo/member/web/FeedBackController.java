@@ -3,8 +3,9 @@ package me.wantgo.member.web;
 import me.wantgo.common.entity.RawString;
 import me.wantgo.common.entity.ReturnValue;
 import me.wantgo.member.entity.FeedBack;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import me.wantgo.member.service.FeedBackService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by zxb on 7/1/16.
@@ -14,14 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/feedback")
 public class FeedBackController {
 
-    @RequestMapping
-    FeedBack getFeedBack(){
-        return new FeedBack(24,"张向兵");
+    @Autowired
+    private FeedBackService feedBackService;
+
+    @RequestMapping("/{id}")
+    FeedBack getFeedBack(@PathVariable int id){
+        return feedBackService.getFeedBackById(id);
     }
 
-    @RequestMapping(value = "/1",produces = "application/json")
-    String getName(){
-        return "张向兵";
+    @RequestMapping(method = RequestMethod.POST)
+    boolean setFeedBack(@RequestBody FeedBack feedBack){
+        return feedBackService.addFeedBack(feedBack);
     }
 
 }

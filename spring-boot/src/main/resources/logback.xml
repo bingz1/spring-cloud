@@ -41,7 +41,7 @@
         <appender-ref ref ="kafkaAppender"/>
     </appender>
 
-    <root level="all">
+    <root level="stdout">
         <!-- 在开发环境配置为 stdout -->
         <!-- 在测试/生产环境配置为 async -->
         <appender-ref ref="stdout"/>
