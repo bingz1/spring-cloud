@@ -1,27 +1,20 @@
 package me.wantgo.member.entity;
 
-/**
- * Created by zxb on 7/2/16.
- */
 public class FeedBack {
+    private Integer id;
+
     private String name;
-    private int age;
 
-    public FeedBack() {
+    private Integer age;
 
+    private String content;
+
+    public Integer getId() {
+        return id;
     }
 
-    public FeedBack(int age, String name) {
-        this.age = age;
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -30,5 +23,21 @@ public class FeedBack {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
