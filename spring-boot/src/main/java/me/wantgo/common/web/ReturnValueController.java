@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 public class ReturnValueController implements ResponseBodyAdvice {
 
-    private Logger logger = LoggerFactory.getLogger(ReturnValueController.class);
+    private final Logger logger = LoggerFactory.getLogger(ReturnValueController.class);
 
     /**
      * 处理返回字符串.
@@ -28,12 +28,12 @@ public class ReturnValueController implements ResponseBodyAdvice {
      * @param string string
      * @return
      */
-    private Void printRawString(final ServerHttpResponse response, final String string) {
+    private Void printRawString(ServerHttpResponse response, String string) {
         try {
             response.getHeaders().setContentType(MediaType.TEXT_PLAIN);
             response.getBody().write(string.getBytes("UTF-8"));
         } catch (Exception e) {
-            logger.error("write raw string failed", e);
+            this.logger.error("write raw string failed", e);
         }
         return null;
     }
@@ -51,7 +51,7 @@ public class ReturnValueController implements ResponseBodyAdvice {
         else if (body instanceof ErrorResult)
             return new ReturnValue(false, body);
         else if (body instanceof RawString)
-            return printRawString(response, body.toString());
+            return this.printRawString(response, body.toString());
         else{
             ReturnValue returnValue = new ReturnValue(true,body);
             return returnValue;

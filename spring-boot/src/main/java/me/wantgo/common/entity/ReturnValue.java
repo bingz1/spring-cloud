@@ -15,7 +15,7 @@ public class ReturnValue implements Serializable{
     private Object data;   //数据
 
     public Object getData() {
-        return this.data;
+        return data;
     }
 
     public void setData(Object data) {
@@ -23,7 +23,7 @@ public class ReturnValue implements Serializable{
     }
 
     public boolean isSuccess() {
-        return this.success;
+        return success;
     }
 
     public void setSuccess(boolean success) {

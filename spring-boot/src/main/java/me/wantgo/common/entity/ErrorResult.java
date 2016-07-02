@@ -24,7 +24,7 @@ public class ErrorResult {
      * @return The HTTP status code
      */
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     /**
@@ -42,7 +42,7 @@ public class ErrorResult {
      * @return The error message
      */
     public String getError() {
-        return error;
+        return this.error;
     }
 
     /**

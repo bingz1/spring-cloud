@@ -37,7 +37,7 @@ public class GlobalExceptionController {
     /**
      * 日志记录类.
      */
-    private Logger logger = LoggerFactory.getLogger(GlobalExceptionController.class);
+    private final Logger logger = LoggerFactory.getLogger(GlobalExceptionController.class);
 
     /**
      * 异常处理类.
@@ -46,7 +46,7 @@ public class GlobalExceptionController {
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public final ErrorResult handleException(HttpServletRequest request, final Exception e) {
+    public final ErrorResult handleException(HttpServletRequest request, Exception e) {
         int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
         String message = "服务器开了小差,请稍后重试.";
 
@@ -74,7 +74,7 @@ public class GlobalExceptionController {
                 messageBuilder.append(": ");
                 messageBuilder.append(value);
             });
-            logger.error(messageBuilder.toString(), e);
+            this.logger.error(messageBuilder.toString(), e);
         }
 
         return new ErrorResult(code, message);

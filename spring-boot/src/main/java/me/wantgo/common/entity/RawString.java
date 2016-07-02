@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
  */
 @JsonSerialize(using = ToStringSerializer.class)
 public final class RawString {
-    private String string;
+    private final String string;
 
     public RawString(String string) {
         this.string = string;
@@ -16,6 +16,6 @@ public final class RawString {
 
     @Override
     public String toString() {
-        return string;
+        return this.string;
     }
 }
