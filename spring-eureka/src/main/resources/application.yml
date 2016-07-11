@@ -1,6 +1,6 @@
 ## 服务端口
 server:
-  port: 8081
+  port: 8079
 
 ##应用名称
 spring:
