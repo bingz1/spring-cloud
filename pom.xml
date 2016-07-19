@@ -12,6 +12,8 @@
         <module>spring-cloud-client</module>
         <module>spring-boot</module>
         <module>spring-cloud-docker</module>
+        <module>spring-config</module>
+        <module>spring-config-client</module>
     </modules>
     <packaging>pom</packaging>
 
