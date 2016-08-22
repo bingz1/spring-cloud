@@ -25,3 +25,30 @@ eureka:
 ```
 
 #多服务器模式
+
+server:
+  port: 8888
+
+## eureka server 相关配置
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer1:8889/eureka/
+
+
+server:
+  port: 8889
+
+## eureka server 相关配置
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer2:8888/eureka/

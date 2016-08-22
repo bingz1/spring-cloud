@@ -4,10 +4,9 @@ server:
 ## eureka server 相关配置
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer1
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+      defaultZone: http://peer2:8888/eureka/
