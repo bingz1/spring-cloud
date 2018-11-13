@@ -21,7 +21,7 @@ public class RemoteHelloController {
     public String hello(){
         long start = System.currentTimeMillis();
 
-        ServiceInstance instance = client.getLocalServiceInstance();
+        String instance = client.description();
 
         try {
             Thread.sleep(new Random().nextInt(1000));
@@ -31,7 +31,7 @@ public class RemoteHelloController {
 
         long cost = System.currentTimeMillis() - start;
 
-        return "Remote Hello ~" + instance.getHost() + ", " +instance.getServiceId() + ", spent " +cost;
+        return "Remote Hello ~" + instance + ", spent " +cost;
     }
 
 }

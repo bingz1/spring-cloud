@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/wantgo
     username: root
-    password: root
+    password: r3[vs5Utmk6Iceg6
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     maxActive: 20
