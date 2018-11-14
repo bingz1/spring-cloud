@@ -24,7 +24,7 @@ public class RemoteHelloController {
         String instance = client.description();
 
         try {
-            Thread.sleep(new Random().nextInt(1000));
+            Thread.sleep(new Random().nextInt(5000));
         }catch (Exception e){
             e.printStackTrace();
         }

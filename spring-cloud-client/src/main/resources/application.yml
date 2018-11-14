@@ -5,6 +5,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8889/eureka/
+    register-with-eureka: false
 
 spring:
   application:
