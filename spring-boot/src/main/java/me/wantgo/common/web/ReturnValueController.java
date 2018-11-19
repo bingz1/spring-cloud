@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * Created by zxb on 7/1/16.
  */
@@ -31,7 +33,7 @@ public class ReturnValueController implements ResponseBodyAdvice {
     private Void printRawString(ServerHttpResponse response, String string) {
         try {
             response.getHeaders().setContentType(MediaType.TEXT_PLAIN);
-            response.getBody().write(string.getBytes("UTF-8"));
+            response.getBody().write(string.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
             this.logger.error("write raw string failed", e);
         }

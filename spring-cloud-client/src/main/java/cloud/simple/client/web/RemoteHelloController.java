@@ -20,12 +20,8 @@ public class RemoteHelloController {
     RemoteHelloService remoteHelloService;
 
     @RequestMapping("remoteHello")
-    @HystrixCommand(fallbackMethod = "timeout",
-            commandProperties =
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
-    )
     public String remoteHello() {
-        return remoteHelloService.remoteHello();
+        return "wework";
     }
 
     @Autowired

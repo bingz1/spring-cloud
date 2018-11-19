@@ -1,0 +1,23 @@
+server:
+  port: 2007
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #必要参数  一定要
+          lowerCaseServiceId: true
+      routes:
+      - id: test-client
+        uri: lb://test-client
+        predicates:
+        - Path=/test-client/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
+

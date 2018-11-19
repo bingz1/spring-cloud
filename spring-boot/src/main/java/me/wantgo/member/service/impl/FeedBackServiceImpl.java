@@ -23,6 +23,6 @@ public class FeedBackServiceImpl implements FeedBackService {
     @Override
     public boolean addFeedBack(FeedBack feedBack) {
         int count = feedBackMapper.insert(feedBack);
-        return count == 0 ? false : true;
+        return count != 0;
     }
 }

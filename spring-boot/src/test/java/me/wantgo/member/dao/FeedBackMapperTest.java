@@ -10,32 +10,32 @@ import static org.junit.Assert.*;
 public class FeedBackMapperTest {
 
     @Test
-    public void deleteByPrimaryKey() throws Exception {
+    public void deleteByPrimaryKey() {
 
     }
 
     @Test
-    public void insert() throws Exception {
+    public void insert() {
 
     }
 
     @Test
-    public void insertSelective() throws Exception {
+    public void insertSelective() {
 
     }
 
     @Test
-    public void selectByPrimaryKey() throws Exception {
+    public void selectByPrimaryKey() {
 
     }
 
     @Test
-    public void updateByPrimaryKeySelective() throws Exception {
+    public void updateByPrimaryKeySelective() {
 
     }
 
     @Test
-    public void updateByPrimaryKey() throws Exception {
+    public void updateByPrimaryKey() {
 
     }
 

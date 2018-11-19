@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zuul-service
+
+server:
+  port: 2006
+  tomcat:
+    max-threads: 2000
+
+zuul:
+  routes:
+    zuul-service:
+      path: /test-client/**
+      serviceId: test-client
+  semaphore:
+    max-semaphores: 1000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
+
