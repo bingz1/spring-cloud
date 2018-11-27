@@ -8,6 +8,6 @@ eureka:
 
 spring:
   application:
-    name: test-service
+    name: test-server
 
 

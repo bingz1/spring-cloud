@@ -6,6 +6,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -24,6 +26,11 @@ public class RemoteHelloController {
         return "wework";
     }
 
+    @PostMapping("person")
+    public Person addPerson(@RequestBody Person person){
+        return person;
+    }
+
     @Autowired
     @LoadBalanced
     RestTemplate restTemplate;
@@ -36,7 +43,7 @@ public class RemoteHelloController {
 
     @RequestMapping("ribbonHello")
     public String ribbonHello() {
-        String body = restTemplate.getForEntity("http://test-service/hello", String.class).getBody();
+        String body = restTemplate.getForEntity("http://test-server/hello", String.class).getBody();
         return body;
     }
 

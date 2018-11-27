@@ -2,6 +2,7 @@ package cloud.simple.cloudzuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @description:
  **/
 @Component
-public class PermisFilter extends ZuulFilter {
+public class PreFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
@@ -21,7 +22,7 @@ public class PermisFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return 0;
+        return 5;
     }
 
     @Override
@@ -30,7 +31,9 @@ public class PermisFilter extends ZuulFilter {
     }
 
     @Override
-    public Object run() {
+    public Object run() throws ZuulException {
+        System.out.println("Pre");
+        int i = 1 / 0;
         return null;
     }
 }

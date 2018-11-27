@@ -1,4 +1,4 @@
-package cloud.simple.service;
+package cloud.simple.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

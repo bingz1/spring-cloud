@@ -23,7 +23,7 @@
 
     <modules>
         <module>spring-eureka</module>
-        <module>spring-cloud-service</module>
+        <module>spring-cloud-server</module>
         <module>spring-cloud-client</module>
         <module>spring-boot</module>
         <module>spring-cloud-docker</module>
