@@ -3,6 +3,7 @@ package cloud.simple.cloudzuul.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,7 @@ public class PreFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
         System.out.println("Pre");
-        int i = 1 / 0;
+        MDC.put("name",Thread.currentThread().getName());
         return null;
     }
 }

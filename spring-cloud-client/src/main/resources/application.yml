@@ -12,7 +12,6 @@ eureka:
 spring:
   application:
     name: test-client
-
-ribbon:
-  eureka:
-    enable: true
+feign:
+  httpclient:
+    enabled: true

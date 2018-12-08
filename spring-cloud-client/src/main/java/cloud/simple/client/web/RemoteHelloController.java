@@ -3,6 +3,7 @@ package cloud.simple.client.web;
 import cloud.simple.client.service.RemoteHelloService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +24,9 @@ public class RemoteHelloController {
 
     @RequestMapping("remoteHello")
     public String remoteHello() {
-        return "wework";
+        System.out.println("userID"+MDC.get("userID"));
+        remoteHelloService.remoteHello();
+        return MDC.get("userID");
     }
 
     @PostMapping("person")

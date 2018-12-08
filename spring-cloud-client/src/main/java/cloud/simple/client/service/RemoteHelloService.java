@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by zxb on 7/6/16.
  */
-@FeignClient("test-service")
+@FeignClient("test-server")
 public interface RemoteHelloService {
 
     @RequestMapping(value = "hello",method = RequestMethod.GET)
