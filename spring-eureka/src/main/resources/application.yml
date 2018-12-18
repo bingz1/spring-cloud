@@ -5,9 +5,12 @@ server:
 eureka:
   instance:
     hostname: localhost
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
   client:
     registerWithEureka: false
+    registryFetchIntervalSeconds: 5
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-

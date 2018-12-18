@@ -1,14 +1,21 @@
 package cloud.simple.cloudzuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StreamUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * @author xiangbingzhang
  * @data 2018-11-26
  **/
+@Component
 public class PostFilter extends ZuulFilter {
     @Override
     public String filterType() {
@@ -28,6 +35,14 @@ public class PostFilter extends ZuulFilter {
     @Override
     public Object run() {
         System.out.println("POST");
+        RequestContext context = RequestContext.getCurrentContext();
+        HttpServletRequest request = context.getRequest();
+        try {
+            String value = StreamUtils.copyToString(request.getInputStream(), Charset.forName("UTF-8"));
+            System.out.println(value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

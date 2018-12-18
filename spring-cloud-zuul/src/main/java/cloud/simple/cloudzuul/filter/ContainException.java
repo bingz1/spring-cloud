@@ -26,14 +26,13 @@ public class ContainException implements ErrorController{
         Enumeration<String> names = request.getAttributeNames();
         while (names.hasMoreElements()){
             String name = names.nextElement();
-            System.out.println(name +"  "+ request.getAttribute(name));
+            //System.out.println(name +"  "+ request.getAttribute(name));
         }
 
-        int code = response1.getStatus();
-        System.out.println(code);
         RequestContext ctx = RequestContext.getCurrentContext();
-        System.out.println("**********"+ctx);
-        System.out.println("**********"+ctx.getThrowable());
-        return "wework";
+        Throwable throwable = ctx.getThrowable();
+        Throwable cause = throwable.getCause();
+        ctx.setResponseStatusCode(200);
+        return cause.getMessage();
     }
 }

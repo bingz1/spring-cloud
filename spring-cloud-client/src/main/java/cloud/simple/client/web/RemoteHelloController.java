@@ -24,13 +24,13 @@ public class RemoteHelloController {
 
     @RequestMapping("remoteHello")
     public String remoteHello() {
-        System.out.println("userID"+MDC.get("userID"));
-        remoteHelloService.remoteHello();
+        System.out.println("userID" + MDC.get("userID"));
+        //remoteHelloService.remoteHello();
         return MDC.get("userID");
     }
 
     @PostMapping("person")
-    public Person addPerson(@RequestBody Person person){
+    public Person addPerson(@RequestBody Person person) {
         return person;
     }
 
@@ -50,7 +50,7 @@ public class RemoteHelloController {
         return body;
     }
 
-    public String timeout(){
+    public String timeout() {
         return "超时";
     }
 }

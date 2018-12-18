@@ -12,10 +12,17 @@ zuul:
     zuul-service:
       path: /test-client/**
       serviceId: test-client
-  semaphore:
-    max-semaphores: 1000
 
 eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1  #每间隔5s，向服务端发送一次心跳，证明自己依然”存活“
+    lease-expiration-duration-in-seconds: 1  #告诉服务端，如果我2s之内没有给你发心跳，就代表我“死”了，将我踢出掉
+    prefer-ip-address: true
   client:
+    registryFetchIntervalSeconds: 3
+
     serviceUrl:
       defaultZone: http://localhost:8889/eureka/
+hystrix:
+  metrics:
+    enabled: false
