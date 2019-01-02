@@ -17,6 +17,8 @@ public class FeignInterceptor implements RequestInterceptor{
     public void apply(RequestTemplate template) {
         System.out.println("**********************************");
         Map<String, String> headerMap = ServiceInterceptor.headerRepository.get();
-        headerMap.forEach(template::header);
+        if (headerMap != null){
+            headerMap.forEach(template::header);
+        }
     }
 }

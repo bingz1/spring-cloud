@@ -31,6 +31,7 @@
         <module>spring-config-client</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-gateway</module>
+        <module>spring-webllux</module>
     </modules>
 
     <dependencyManagement>

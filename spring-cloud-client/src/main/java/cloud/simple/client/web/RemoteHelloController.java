@@ -23,8 +23,9 @@ public class RemoteHelloController {
     RemoteHelloService remoteHelloService;
 
     @RequestMapping("remoteHello")
-    public String remoteHello() {
+    public String remoteHello() throws InterruptedException {
         System.out.println("userID" + MDC.get("userID"));
+        Thread.sleep(100000);
         //remoteHelloService.remoteHello();
         return MDC.get("userID");
     }
