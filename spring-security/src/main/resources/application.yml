@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=GMT%2b8
+    username: root
+    password: r3[vs5Utmk6Iceg6
