@@ -33,9 +33,11 @@
         <module>spring-config-client</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-gateway</module>
-        <module>spring-webllux</module>
+        <module>spring-webflux</module>
         <module>spring-boot-jpa</module>
         <module>spring-security</module>
+        <module>spring-cache</module>
+
     </modules>
 
     <dependencyManagement>
