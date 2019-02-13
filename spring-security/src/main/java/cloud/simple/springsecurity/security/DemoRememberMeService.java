@@ -30,6 +30,11 @@ public class DemoRememberMeService extends TokenBasedRememberMeServices {
     }
 
     @Override
+    protected boolean isTokenExpired(long tokenExpiryTime) {
+        return super.isTokenExpired(tokenExpiryTime);
+    }
+
+    @Override
     protected void setCookie(String[] tokens, int maxAge, HttpServletRequest request, HttpServletResponse response) {
         String cookieValue = encodeCookie(tokens);
         response.setHeader(HEADER_SECURITY_TOKEN, cookieValue);
