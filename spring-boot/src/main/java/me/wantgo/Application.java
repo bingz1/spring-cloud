@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by zxb on 7/1/16.
+ *
+ * @author zxb
+ * @date 7/1/16
  */
 @SpringBootApplication
 @MapperScan("me.wantgo.*.dao")

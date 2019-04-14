@@ -1,5 +1,6 @@
 package cloud.simple.springsecurity.security;
 
+import cloud.simple.springsecurity.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -7,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,7 @@ import java.util.List;
  * @author xiangbingzhang
  * @date 2019-02-13
  **/
+@Service
 public class TokenAuthenticationService {
 
     static final long EXPIRATIONTIME = 432_000_000;
@@ -25,14 +28,14 @@ public class TokenAuthenticationService {
     static final String TOKEN_PREFIX = "Bearer";
     static final String HEADER_STRING = "Authorization";
 
-    static void addAuthentication(HttpServletResponse response, String username) {
+    public void addAuthentication(HttpServletResponse response, String userName) {
 
         // 生成JWT
         String JWT = Jwts.builder()
                 // 保存权限（角色）
                 .claim("authorities", "USER,ADMIN")
                 // 用户名写入标题
-                .setSubject(username)
+                .setSubject(userName)
                 // 有效期设置
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                 // 签名设置
@@ -49,7 +52,7 @@ public class TokenAuthenticationService {
         }
     }
 
-    static Authentication getAuthentication(HttpServletRequest request) {
+    public Authentication getAuthentication(HttpServletRequest request) {
         // 从Header中拿到token
         String token = request.getHeader(HEADER_STRING);
 
