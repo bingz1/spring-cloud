@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created by zxb on 7/6/16.
+ *
+ * @author zxb
+ * @date 7/6/16
  */
 @RestController
 public class RemoteHelloController {
@@ -23,12 +25,8 @@ public class RemoteHelloController {
     RemoteHelloService remoteHelloService;
 
     @RequestMapping("remoteHello")
-    public String remoteHello() throws ServiceException {
-        throw new ServiceException(400,"1231");
-//        System.out.println("userID" + MDC.get("userID"));
-//        Thread.sleep(100000);
-//        //remoteHelloService.remoteHello();
-//        return MDC.get("userID");
+    public String remoteHello() {
+        return "test";
     }
 
     @PostMapping("person")

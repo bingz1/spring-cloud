@@ -6,7 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * Created by zxb on 7/5/16.
+ *
+ * @author zxb
+ * @date 7/5/16
  */
 @SpringBootApplication
 @EnableEurekaServer

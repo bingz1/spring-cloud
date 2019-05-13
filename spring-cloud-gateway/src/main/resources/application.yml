@@ -11,10 +11,19 @@ spring:
           enabled: true  #必要参数  一定要
           lowerCaseServiceId: true
       routes:
-      - id: test-client
-        uri: lb://test-client
-        predicates:
-        - Path=/test-client/**
+        - id: test-client
+          uri: lb://test-client
+          predicates:
+            - Path= /test-client/**
+          filters:
+            - StripPrefix=1
+        - id: baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Path= /baidu
+          filters:
+            - StripPrefix=1
+
 
 eureka:
   client:

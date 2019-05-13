@@ -3,11 +3,14 @@ package cloud.simple.webllux;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author 张向兵
+ */
 @SpringBootApplication
-public class WeblluxApplication {
+public class WebfluxApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WeblluxApplication.class, args);
+        SpringApplication.run(WebfluxApplication.class, args);
     }
 
 }
