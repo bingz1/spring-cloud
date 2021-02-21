@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-public class EurekaServerApplicationTest {
+public class EurekaApplicationTest {
 
     private int port = 8889;
 

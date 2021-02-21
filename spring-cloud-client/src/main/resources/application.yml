@@ -3,7 +3,6 @@ server:
   tomcat:
     max-threads: 500
 
-
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 2  #每间隔1s，向服务端发送一次心跳，证明自己依然”存活“
@@ -16,6 +15,11 @@ eureka:
 spring:
   application:
     name: test-client
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 30MB
+
 feign:
   httpclient:
     enabled: true
