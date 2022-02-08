@@ -21,11 +21,6 @@ public class ContainException implements ErrorController {
 
     Logger logger = LoggerFactory.getLogger(ContainException.class);
 
-    @Override
-    public String getErrorPath() {
-        return "error";
-    }
-
     @RequestMapping("error")
     public String remoteHello(HttpServletRequest request, HttpServletResponse response1) {
         Enumeration<String> names = request.getAttributeNames();

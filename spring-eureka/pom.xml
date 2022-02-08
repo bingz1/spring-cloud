@@ -7,7 +7,6 @@
     <packaging>jar</packaging>
 
     <name>spring-eureka</name>
-    <url>http://maven.apache.org</url>
     <parent>
         <groupId>cloud.simple</groupId>
         <artifactId>spring-cloud</artifactId>

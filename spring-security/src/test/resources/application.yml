@@ -1,0 +1,45 @@
+spring:
+  # H2 is our default in-memory database,
+  # we use H2 in integration testing
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL;DATABASE_TO_UPPER=false
+    jdbc-url: jdbc:h2:mem:testdb;MODE=MYSQL;DATABASE_TO_UPPER=false
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 86400000 #毫秒
+  jpa:
+    show-sql: true
+    hibernate:
+      # Hibernate ddl auto could help auto update tables
+      ddl-auto: none
+    application:
+      name: Spring Boot Rest API
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    # enables h2 web console,
+    # so that check runtime H2 db status is possible
+    console:
+      enabled: true
+server:
+  port: 8000
+  tomcat:
+    max-threads: 500
+    max-connections: 500
+    connection-timeout: 5000
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
